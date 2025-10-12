@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Sign In</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg,#11001f,#3b003f);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+    .card {
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid #a855f7;
+    }
+    .message {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      text-align: center;
+    }
+    .success { background-color: #16a34a; color: #fff; }
+    .error { background-color: #dc2626; color: #fff; }
+    .warning { background-color: #f59e0b; color: #000; }
+  </style>
+</head>
+<body class="flex items-center justify-center h-screen">
+  <div class="card p-8 rounded-xl w-full max-w-sm shadow-lg">
+    <h2 class="text-2xl font-bold mb-6 text-center">Admin Sign In</h2>
+
+    <form id="otp-form" class="flex flex-col space-y-4">
+      <input type="text" id="username" placeholder="Username" 
+             class="px-4 py-2 rounded-lg bg-gray-900 text-white border border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500">
+      
+      <input type="text" id="otp" placeholder="Enter OTP from Google Authenticator" 
+             class="px-4 py-2 rounded-lg bg-gray-900 text-white border border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500">
+
+      <button type="submit" 
+              class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition font-semibold">
+        Sign In
+      </button>
+    </form>
+
+    <div id="message" class="message hidden"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("otp-form");
+    const messageDiv = document.getElementById("message");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const otp = document.getElementById("otp").value.trim();
+
+      if (!username || !otp) {
+        showMessage("Please fill both fields.", "warning");
+        return;
+      }
+
+      try {
+        const response = await fetch("/verify-otp", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, otp })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          showMessage("Sign in successful! Redirecting...", "success");
+          setTimeout(() => {
+            window.location.href = "demo.html";
+          }, 2000);
+        } else {
+          showMessage(data.message || "Invalid OTP.", "error");
+        }
+
+      } catch (err) {
+        showMessage("Failed to connect to server.", "error");
+        console.error(err);
+      }
+    });
+
+    function showMessage(text, type) {
+      messageDiv.textContent = text;
+      messageDiv.className = `message ${type}`;
+      messageDiv.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

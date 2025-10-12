@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Take a Break ☕</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #000000, #ff7b00, #a855f7);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-5xl font-bold mb-6 float">☕ Take a Break 😌</h1>
+  <p class="text-xl opacity-90 mb-8">Relax, breathe, and come back stronger!</p>
+  <a href="heartbreak.html" class="px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition">
+    Back to Work 💪
+  </a>
+</body>
+</html>

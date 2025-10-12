@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Heartbroken Souls 💔</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    background: linear-gradient(135deg, #0d0d0d, #2a0a0a);
+    color: #fff;
+    font-family: 'Georgia', serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  h1 {
+    color: #ff4b5c;
+    text-shadow: 0 0 10px #ff4b5c;
+  }
+
+  /* Floating broken hearts */
+  .broken-heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: floatHeart 12s linear infinite;
+    text-shadow: 0 0 8px #ff0000;
+  }
+
+  @keyframes floatHeart {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    50% { transform: translateY(50vh) rotate(180deg); }
+    100% { transform: translateY(-10vh) rotate(360deg); }
+  }
+
+  /* Shayari Cards */
+  .shayari-card {
+    background: rgba(20, 0, 0, 0.5);
+    border: 1px solid #ff4b5c;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(255, 75, 92, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(6px);
+  }
+
+  .shayari-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(255, 75, 92, 0.7);
+  }
+
+  .shayari-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.8;
+    text-align: center;
+    color: #ffccd5;
+  }
+
+  .header-text {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  .header-sub {
+    font-size: 1.25rem;
+    color: #ff9aa2;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.85;
+  }
+
+  /* Credits & Footer */
+  .credits {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #ff9aa2;
+    line-height: 1.6;
+  }
+
+  .footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #ff9aa2;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+
+  .footer a {
+    color: #ff4b5c;
+    margin: 0 10px;
+    text-decoration: underline;
+  }
+
+</style>
+</head>
+<body class="relative flex flex-col items-center">
+
+<!-- Floating broken hearts -->
+<div class="broken-heart" style="left:5%;">💔</div>
+<div class="broken-heart" style="left:25%; animation-duration:14s;">💔</div>
+<div class="broken-heart" style="left:55%; animation-duration:10s;">💔</div>
+<div class="broken-heart" style="left:75%; animation-duration:13s;">💔</div>
+
+<!-- Header -->
+<div class="header-text">
+  <h1 class="text-5xl md:text-6xl font-extrabold">💔 Heartbroken Souls 💔</h1>
+  <p class="header-sub mt-4">"Jitna bhi chhupa lo dard, dil ka to hamesha raaz rahega… Shayari aur jazbaat ke saath apne dil ko saath do."</p>
+</div>
+
+<!-- Shayari Section -->
+<div class="grid md:grid-cols-2 gap-8 px-6 mb-16 w-full max-w-6xl">
+  <div class="shayari-card">
+    <p class="shayari-text">"Ranjish hi sahi, dil hi dukhane ke liye aa." – Ahmed Faraz</p>
+  </div>
+  <div class="shayari-card">
+    <p class="shayari-text">"Dil ko samjhaana aasaan nahi hota, jo chaha wohi chhodna padta hai." – Mirza Ghalib</p>
+  </div>
+  <div class="shayari-card">
+    <p class="shayari-text">"Koi bhi raasta asaan nahi, par dard se guzarna zaroori hai." – Faiz Ahmed Faiz</p>
+  </div>
+  <div class="shayari-card">
+    <p class="shayari-text">"Tera gham, mera gham, bas yaadon mein jeena." – Unknown</p>
+  </div>
+  <div class="shayari-card md:col-span-2">
+    <p class="shayari-text">"Zindagi mein dard hi sahi, par yaadon ka sahara hamesha saath rehta hai." – Unknown</p>
+  </div>
+</div>
+
+<!-- Credits -->
+<div class="credits">
+  <p>Shayari Credits: Ahmed Faraz, Mirza Ghalib, Faiz Ahmed Faiz, Unknown</p>
+  <p>Page Design & Development: Dev Rajpurohit</p>
+</div>
+
+<!-- Footer with Contact -->
+<div class="footer">
+  <p>📞 Phone: +91 86190 66770</p>
+  <p>✉️ Email: mahipalsgh2003@gmail.com</p>
+  <div class="mt-2">
+    <a href="https://github.com/mahipalsgh2003" target="_blank">GitHub</a> |
+    <a href="https://www.linkedin.com/in/mahipalsgh/" target="_blank">LinkedIn</a> |
+    <a href="https://instagram.com/mahipal_sgh03" target="_blank">Instagram</a>
+  </div>
+  <p class="mt-2">© 2025 Dev Rajpurohit. All rights reserved.</p>
+</div>
+
+</body>
+</html>
